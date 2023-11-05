@@ -1,6 +1,7 @@
-import Loader from 'components/Loader/Loader';
-import { fetchTrending } from 'helpers/TmdbApi';
 import { useState, useEffect } from 'react';
+import ChangeList from 'pages/ChangeList/ChangeList';
+import { fetchTrending } from 'helpers/TmdbApi';
+import Loader from 'components/Loader/Loader';
 
 const Home = () => {
     const [films, setFilms] = useState([]);
@@ -27,9 +28,11 @@ const Home = () => {
     return (
         <main>
             <h1>Tranding today</h1>
-            <div films={films} />
+            <ChangeList films={films} />
 
             {loading && <Loader />}
         </main>
-    )
-}
+    );
+};
+
+export default Home;

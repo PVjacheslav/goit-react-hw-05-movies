@@ -2,7 +2,7 @@ import Loader from "components/Loader/Loader";
 import { fetchActors } from "helpers/TmdbApi";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { List } from "./Cast.styled";
+import { List, Text } from "./Cast.styled";
 
 const Cast = () => {
     const { movieId } = useParams();
@@ -50,3 +50,5 @@ const Cast = () => {
         </div>
     )
 }
+
+export default Cast;
