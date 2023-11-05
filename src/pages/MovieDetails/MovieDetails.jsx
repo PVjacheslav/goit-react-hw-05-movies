@@ -45,7 +45,7 @@ const MovieDetails = () => {
 
     return (
         <>
-            <Link to={Location.state?.from ?? '/'}>
+            <Link to={location.state?.from ?? '/'}>
                 <Button type="button">Back</Button>  
             </Link>
             {loading && <Loader />}
