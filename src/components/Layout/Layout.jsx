@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom";
 import { Suspense } from "react";
-import { Container, Header, Link } from "./Model.styled";
+import { Container, Header, Link } from "./Layout.styled";
 import Loader from "components/Loader/Loader";
 
-const Model = () => {
+const Layout = () => {
     return (
         <Container>
             <Header>
@@ -22,4 +22,4 @@ const Model = () => {
     );
 };
 
-export default Model;
+export default Layout;

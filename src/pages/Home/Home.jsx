@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import ChangeList from 'pages/ChangeList/ChangeList';
+import MoviesList from 'pages/MoviesList/MoviesList';
 import { fetchTrending } from 'helpers/TmdbApi';
 import Loader from 'components/Loader/Loader';
 
@@ -28,7 +28,7 @@ const Home = () => {
     return (
         <main>
             <h1>Tranding today</h1>
-            <ChangeList films={films} />
+            <MoviesList films={films} />
 
             {loading && <Loader />}
         </main>

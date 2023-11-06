@@ -1,7 +1,7 @@
 import { useState } from "react"
-import { Button, Input, SearchForm } from "./Forma.styled";
+import { Button, Input, SearchForm } from "./Form.styled";
 
-const Forma = ({ searchMovies }) => {
+const Form = ({ searchMovies }) => {
     const [query, setQuery] = useState('');
 
     const handleInputChange = evt => {
@@ -27,4 +27,4 @@ const Forma = ({ searchMovies }) => {
   );
 }
 
-export default Forma;
+export default Form;

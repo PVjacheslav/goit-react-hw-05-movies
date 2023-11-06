@@ -1,14 +1,29 @@
-import Forma from "components/Forma/Forma";
+import Form from "components/Form/Form";
 import Loader from "components/Loader/Loader";
 import { fetchSearchKeyword } from "helpers/TmdbApi";
-import ChangeList from "pages/ChangeList/ChangeList";
-import { useState } from "react"
+import MoviesList from "pages/MoviesList/MoviesList";
+import { useEffect, useState } from "react"
+import { useSearchParams } from "react-router-dom";
 
 const Movies = () => {
+    const [searchParams, setSearchParams] = useSearchParams()
     const [searchFilms, setSearchFilms] = useState([]);
     const [loading, setLoading] = useState(false);
     const [noMoviesText, setNoMoviesText] = useState(false);
 
+    const getQueryUrl = searchParams.get('query') ?? '';
+
+    const handleSubmit = value => {
+        const nextParams = value !== '' ? { query: value } : {};
+        setSearchParams(nextParams);
+     };
+
+    useEffect(() => {
+        if (getQueryUrl === '') {
+            return;
+        }
+    })   
+    
     const searchMovies = queryMovie => {
         setLoading(true);
 
@@ -27,12 +42,12 @@ const Movies = () => {
 
     return (
         <main>
-            <Forma searchMovies={searchMovies} />
+            <Form searchMovies={searchMovies} />
             {loading && <Loader />}
             {noMoviesText && (
                 <p>No movie was found for your request. Please try again.</p>
             )}
-            {searchFilms && <ChangeList films={searchFilms} />}
+            {searchFilms && <MoviesList films={searchFilms} />}
         </main>
     );
 };
